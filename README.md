@@ -28,13 +28,20 @@
 
 ## Initialization
 
-  At the start you must type "Place" to start app. After that app tell you
-  to input coordinates of the robot start position and view direction.
+  At the start you must type "Place" to start app.
+
+     Type "PLACE" first: place
+
+  After that app tell you to input coordinates of the robot start position and view direction like that:
+
+    Place the robot(x, y, f): 1, 2, NORTH
 
   Robot can move in 4 directions (SOUTH, WEST, NORTH and EAST) and makes
   1 step at the time.
 
   Soon you'll create robot's field. By default it sets to 5x6 size.
+
+
 
 ## Controls
 
@@ -42,6 +49,16 @@
 
   - MOVE
     -- moves robot to direction he watch
+
+    "Robot watches NORTH"          "Robot watches EAST"         
+        .  .  .  .  .                  .  .  .  .  .
+        .  .  .  .  .                  .  .  .  .  .
+        .  .  .  .  .                  .  .  R  .  .
+        .  .  .  .  .                  .  .  .  .  .
+        R  .  .  .  .                  .  .  .  .  .
+    "Robot coords: X: 1 Y: 1"      "Robot coords: X: 3 Y: 3"
+
+
   - LEFT
     -- rotate robot left and change his view direction
   - RIGHT
