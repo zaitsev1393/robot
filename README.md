@@ -19,7 +19,7 @@
          /|..|\       /|..|\
         `=}--{='     `=}--{='
        .-^--r-^-.   .-^--r-^-.
-       
+
 ## Information
 
   "Robot Simulator Task" is a simple little game there you placing Robot
@@ -48,16 +48,6 @@
 
   - MOVE
     -- moves robot to direction he watch
-
-    "Robot watches NORTH"          "Robot watches EAST"         
-        .  .  .  .  .                  .  .  .  .  .
-        .  .  .  .  .                  .  .  .  .  .
-        .  .  .  .  .                  .  .  R  .  .
-        .  .  .  .  .                  .  .  .  .  .
-        R  .  .  .  .                  .  .  .  .  .
-    "Robot coords: X: 1 Y: 1"      "Robot coords: X: 3 Y: 3"
-
-
   - LEFT
     -- rotate robot left and change his view direction
   - RIGHT
