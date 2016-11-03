@@ -35,7 +35,7 @@ class Robot
     print "Set table size : \n"
     print 'M: '; @m = gets.chomp.to_i
     print 'N: '; @n = gets.chomp.to_i
-    if @n > 0 || @m > 0
+    if @n > 0 && @m > 0
       p "#{@m}x#{@n} table created!"
       @table_map = Array.new(@m, ' .') { Array.new(@n, ' .')}
     else
