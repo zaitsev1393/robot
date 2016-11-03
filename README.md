@@ -19,8 +19,7 @@
          /|..|\       /|..|\
         `=}--{='     `=}--{='
        .-^--r-^-.   .-^--r-^-.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+       
 ## Information
 
   "Robot Simulator Task" is a simple little game there you placing Robot
