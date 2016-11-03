@@ -1,9 +1,11 @@
+require './recursiveMatrixRotate'
+
 class Robot
 
-  require './recursiveMatrixRotate'
+
   include RMR
 
-  @@directions = ['NORTH', 'EAST', 'SOUTH', 'WEST']
+  $directions = ['NORTH', 'EAST', 'SOUTH', 'WEST']
 
   def start
     print 'Type "PLACE" first: '
@@ -22,13 +24,13 @@ class Robot
   end
 
   def place_robot
-    @@coords = []
+    @coords = []
     p 'Place the robot(x, y, f): '
-    place = gets.chomp.split(',').each { |x| @@coords.push(x)}
-    @x = @@coords[0].to_i - 1
-    @y = @@coords[1].to_i - 1
-    @f = @@coords[2].upcase
-    @cursor = @@directions.index(@f)
+    place = gets.chomp.split(',').each { |x| @coords.push(x)}
+    @x = @coords[0].to_i - 1
+    @y = @coords[1].to_i - 1
+    @f = @coords[2].upcase
+    @cursor = $directions.index(@f)
   end
 
   def create_table
@@ -37,10 +39,10 @@ class Robot
     print 'N: '; @n = gets.chomp.to_i
     if @n > 0 && @m > 0
       p "#{@m}x#{@n} table created!"
-      @table_map = Array.new(@m, ' .') { Array.new(@n, ' .')}
+      @table_map = Array.new(@m) { Array.new(@n, ' .')}
     else
       @m = 5; @n = 6
-      @table_map = Array.new(@m, ' .') { Array.new(@n, ' .')}
+      @table_map = Array.new(@m) { Array.new(@n, ' .')}
     end
     render_table
     show_table
@@ -48,13 +50,18 @@ class Robot
   end
 
   def place_robot
-    @@coords = []
-    print 'Place the robot(x, y, f): '
-    place = gets.chomp.gsub(/\s+/, "").split(",").each { |x| @@coords.push(x)}
-    @x = @@coords[0].to_i - 1
-    @y = @@coords[1].to_i - 1
-    @f = @@coords[2].upcase
-    @cursor = @@directions.index(@f)
+    begin
+      @coords = []
+      print 'Place the robot(x, y, f): '
+      place = gets.chomp.gsub(/\s+/, "").split(",").each { |x| @coords.push(x)}
+      @x = @coords[0].to_i - 1
+      @y = @coords[1].to_i - 1
+      @f = @coords[2].upcase
+      @cursor = $directions.index(@f)
+    rescue
+      p 'Input error! Input X, Y, F(NORTH EAST SOUTH WEST)'
+      place_robot
+    end
   end
 
   def action
@@ -68,12 +75,22 @@ class Robot
       when "MOVE"
         move
       when 'LEFT'
-        @@directions = @@directions.rotate(-1)
-        @f = @@directions[@cursor]
+        begin
+          $directions = $directions.rotate(-1)
+          @f = $directions[@cursor]
+        rescue
+          p 'Direction error! Input valid direction: NORTH EAST SOUTH WEST'
+          place_robot
+        end
         show_table
       when 'RIGHT'
-        @@directions.rotate!
-        @f = @@directions[@cursor]
+        begin
+          $directions.rotate!
+          @f = $directions[@cursor]
+        rescue
+          p 'Direction error! Input valid direction: NORTH EAST SOUTH WEST'
+          place_robot
+        end
         show_table
       when 'REPORT'
         report
@@ -104,7 +121,7 @@ class Robot
 
 
   def render_table
-    @table_map = Array.new(@m, ' .') { Array.new(@n, ' .')}
+    @table_map = Array.new(@m) { Array.new(@n, ' .')}
     @table_map[@x][@y] = ' R'
   end
 
