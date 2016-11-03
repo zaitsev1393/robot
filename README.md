@@ -21,4 +21,40 @@
        .-^--r-^-.   .-^--r-^-.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-## 
+## Information
+
+  "Robot Simulator Task" is a simple little game there you placing Robot
+  on the table and move it like you wish.
+
+## Initialization
+
+  At the start you must type "Place" to start app. After that app tell you
+  to input coordinates of the robot start position and view direction.
+
+  Robot can move in 4 directions (SOUTH, WEST, NORTH and EAST) and makes
+  1 step at the time.
+
+  Soon you'll create robot's field. By default it sets to 5x6 size.
+
+## Controls
+
+  To control the robot use this commands:
+
+  - MOVE
+    -- moves robot to direction he watch
+  - LEFT
+    -- rotate robot left and change his view direction
+  - RIGHT
+    -- rotate robot right and change his view direction
+  - REPORT
+    -- Outputs the information about current robot position and viewing direction
+  - EXIT
+    -- Stops the app
+
+## Caution
+
+Robot can move inside the field and cant to move outside. In case of users
+attempts to move robot outside, app will do nothing.
+
+In case of setting robot's start position outside of the field, app will
+do nothing till console receive "EXIT" message. Then it will stop.
