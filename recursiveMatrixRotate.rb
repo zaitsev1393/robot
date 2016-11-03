@@ -22,7 +22,7 @@ module RMR
     end
   end
 
-  def final_show(matrix, t)
+  def rotated_show(matrix, t)
     show(rotate(matrix, t))
   end
 
