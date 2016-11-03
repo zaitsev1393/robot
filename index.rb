@@ -64,6 +64,11 @@ class Robot
     end
   end
 
+  def set_direction
+    print 'Input: (NORTH EAST SOUTH WEST)'
+    @f = gets.chomp
+  end
+
   def action
     if @x > @n || @y > @m
       dummy
@@ -79,8 +84,8 @@ class Robot
           $directions = $directions.rotate(-1)
           @f = $directions[@cursor]
         rescue
-          p 'Direction error! Input valid direction: NORTH EAST SOUTH WEST'
-          place_robot
+          p 'Direction error! Input valid direction: NORTH EAST SOUTH WEST: '
+          set_direction
         end
         show_table
       when 'RIGHT'
@@ -88,8 +93,8 @@ class Robot
           $directions.rotate!
           @f = $directions[@cursor]
         rescue
-          p 'Direction error! Input valid direction: NORTH EAST SOUTH WEST'
-          place_robot
+          p 'Direction error! Input valid direction: NORTH EAST SOUTH WEST: '
+          set_direction
         end
         show_table
       when 'REPORT'
